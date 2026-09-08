@@ -1,0 +1,20 @@
+
+generate a default mvn project with pom in current folder
+adds in JUnit5
+% mvn -N archetype:generate \
+  -DgroupId=se350 \                  // workspace 
+  -DartifactId=350classDemo \        // project name
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DarchetypeVersion=1.5 \
+  -DinteractiveMode=false
+
+creates this file structure
+src/main/java/se350
+src/test/java/se350     // I deleted the groupId package se350, imported there and is ok
+
+% mvn clean     // delete the target bin
+% mvn clean package    // full rebuild and run
+% mvn compile    // only what is new
+% mvn -q exec:java -Dexec.mainClass="package.Class"   // in folder containing pom.xml
+% mvn test    // run JUnit tests
+
