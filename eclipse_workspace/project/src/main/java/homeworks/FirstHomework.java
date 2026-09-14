@@ -1,0 +1,192 @@
+package homeworks;
+
+/* *********************************************************************** 
+ Directions: Complete the functions/classes in this file.
+ 
+ * Restrictions:  
+ *  - DO NOT change the first line of any function or class: name, parameters, types, etc.
+ *  - You may add new functions, private methods, etc., but don't delete anything
+ *  - DO NOT ADD new fields (variables declared outside of a function) or 
+ *    change existing ones
+ *  - You may use any for loops, while loops, or write recursive functions
+ *  - Each function must be independent --- do not call any of the other functions 
+ *      (unless its calling its associated helper function)
+ *  - Follow the directions given above each function/class to complete
+ *************************************************************************/
+
+/*
+ * This is a skeleton file for your homework. Edit the sections marked TODO. You
+ * may also edit the function "main" to test your code.
+ *
+ * You must not change the declaration of any method. This will be true of every
+ * skeleton file I give you.
+ *
+ * For example, you will get zero points if you change the line
+ * 
+ * <pre>
+ *     public static int minPosition (double[] list) {
+ * </pre>
+ * 
+ * to something like
+ * 
+ * <pre>
+ *     public static double minPosition (double[] list) {
+ * </pre>
+ * 
+ * or
+ * 
+ * <pre>
+ *     public static int minPosition (double[] list, int i) {
+ * </pre>
+ * 
+ * Each of the functions below is meant to be SELF CONTAINED. This means that
+ * you should use no other functions or classes. You should not use any HashSets
+ * or ArrayLists, or anything else! In addition, each of your functions should
+ * go through the argument array AT MOST ONCE. The only exception to this the
+ * java Math.abs. You can use the Math.abs function to compute the absolute
+ * value.
+ */
+
+public class FirstHomework {
+
+  /*
+   * minValue returns the minimum value in an array of doubles. You can assume the
+   * array is nonempty and has no duplicates. Your solution must go through the
+   * array exactly once. Your solution must not call any other functions. Here are
+   * some examples (using "==" informally):
+   *
+   * <pre>
+   *   -7  == minValue (new double[] { -7 })
+   *    1  == minValue (new double[] { 1, 7, 8, 11 })
+   *   -7  == minValue (new double[] { 1, -4, -7, 7, 8, 11 })
+   *   -13 == minValue (new double[] { -13, -4, -7, 7, 8, 11 })
+   *   -13 == minValue (new double[] { 1, -4, -7, 7, 8, 11, -13 })
+   * </pre>
+   */
+  public double minValue(double[] list) {
+    // TODO: complete the function
+    return 0.0;  // replace
+  }
+
+  /*
+   * minPosition returns the position of the minimum value in an array of doubles.
+   * The first position in an array is 0 and the last is the array.length-1.
+   *
+   * You can assume the array is nonempty and has no duplicates. Your solution
+   * must go through the array exactly once. Your solution must not call any other
+   * functions. Here are some examples (using "==" informally):
+   *
+   * <pre>
+   *   0 == minPosition(new double[] { -7 })
+   *   2 == minPosition(new double[] { 1, -4, -7, 7, 8, 11 })
+   *   0 == minPosition(new double[] { -13, -4, -7, 7, 8, 11 })
+   *   6 == minPosition(new double[] { 1, -4, -7, 7, 8, 11, -9 })
+   * </pre>
+   */
+  public int minPosition(double[] list) {
+    // TODO: complete the function
+    return -4000;  // complete
+  }
+
+  /*
+   * distanceBetweenMinAndMax returns difference between the minPosition and the
+   * maxPosition in an array of doubles.
+   *
+   * You can assume the array is nonempty and has no duplicates. Your solution
+   * must go through the array exactly once. Your solution must not call any other
+   * functions. Here are some examples (using "==" informally):
+   *
+   * <pre>
+   *   0 == distanceBetweenMinAndMax(new double[] { -7 })                      // -7,-7 are the min and max
+   *   3 == distanceBetweenMinAndMax(new double[] { 1, -4, -7, 7, 8, 11 }),    // -7,11
+   *   5 == distanceBetweenMinAndMax(new double[] { -13, -4, -7, 7, 8, 11 })   // -13,11
+   *   1 == distanceBetweenMinAndMax(new double[] { 1, -4, -7, 7, 8, 11, -9 }) // -9,11
+   * </pre>
+   */
+  public int distanceBetweenMinAndMax(double[] list) {
+    // TODO: complete the function
+    return -4000;  // replace
+  }
+  
+  /*
+   * allSame returns true if all of the elements in list have the same value.
+   * allSame returns false if any two elements in list have different values. The
+   * array may be empty and it may contain duplicate values.
+   *
+   * Your solution should contain at most one loop. You may not use recursion.
+   * Your solution must not call any other functions. Here are some examples
+   * (using "==" informally):
+   *
+   * <pre>
+   *     true  == allSame(new double[] { })
+   *     true  == allSame(new double[] { 11 })
+   *     true  == allSame(new double[] { 11, 11, 11, 11 })
+   *     false == allSame(new double[] { 11, 11, 11, 22 })
+   *     false == allSame(new double[] { 11, 11, 22, 11 })
+   *     true  == allSame(new double[] { 22, 22, 22, 22 })
+   * </pre>
+   */
+  public boolean allSame(double[] list) {
+    // TODO: complete the function
+    return true;  // replace
+  }
+
+  /*
+   * numUnique returns the number of unique values in a sorted array of doubles.
+   * The array may be empty and it may contain duplicate values. Assume that the
+   * list array is sorted.
+   *
+   * Your solution should contain at most one loop. You may not use recursion.
+   * Your solution must not call any other functions. Here are some examples
+   * (using "==" informally):
+   *
+   * <pre>
+   *     0 == numUnique(new double[] { })
+   *     1 == numUnique(new double[] { 11 })
+   *     1 == numUnique(new double[] { 11, 11, 11, 11 })
+   *     8 == numUnique(new double[] { 11, 11, 11, 11, 22, 33, 44, 44, 44, 44, 44, 55, 55, 66, 77, 88, 88 })
+   *     8 == numUnique(new double[] { 11, 22, 33, 44, 44, 44, 44, 44, 55, 55, 66, 77, 88 })
+   * </pre>
+   */
+  public int numUnique(double[] list) {
+    // TODO: complete the function
+    return -4000;  // replace
+  }
+
+  /*
+   * removeDuplicates returns a new array containing the unique values in the
+   * sorted argument array, in the same order that they were found in the original
+   * array. There should not be any extra space in the array --- there should be
+   * exactly one space for each unique element (Hint: numUnique tells you how big
+   * the array should be).
+   * 
+   * Assume that the list array is sorted, as you did for numUnique.
+   *
+   * Your solution should contain at most one loop. You may not use recursion.
+   * Your solution must not call any other functions, except numUnique. Here are
+   * some examples (using "==" informally):
+   *
+   * <pre>
+   *   new double[] { }
+   *     == removeDuplicates(new double[] { })
+   *   new double[] { 11 }
+   *     == removeDuplicates(new double[] { 11 })
+   *     == removeDuplicates(new double[] { 11, 11, 11, 11 })
+   *   new double[] { 11, 22, 33, 44, 55, 66, 77, 88 }
+   *     == removeDuplicates(new double[] { 11, 11, 11, 11, 22, 33, 44, 44, 44, 44, 44, 55, 55, 66, 77, 88, 88 })
+   *     == removeDuplicates(new double[] { 11, 22, 33, 44, 44, 44, 44, 44, 55, 55, 66, 77, 88 })
+   * </pre>
+   */
+  public double[] removeDuplicates(double[] list) {
+    // TODO: complete the function
+    return null;  // replace
+  }
+
+/* ===== DO NOT CHANGE BELOW ===== */
+  
+  public static void main(String[] args) {
+    FirstHomeworkTests fht = new FirstHomeworkTests(new FirstHomework());
+    fht.execute();
+  }
+}
+/* ===== DO NOT CHANGE ABOVE ===== */
