@@ -1,3 +1,11 @@
+/*
+IMPORTANT:
+In your file system manager, like Finder on Mac, or Windows Explorer on PC ->
+    Remove .blank from this file's name to start working and to run the file
+    This file needs to be named FirstHomework.java to run!
+You can also do this in IntelliJ - make sure to uncheck all boxes
+*/
+
 package homeworks;
 
 /* *********************************************************************** 
@@ -65,7 +73,13 @@ public class FirstHomework {
    */
   public double minValue(double[] list) {
     // TODO: complete the function
-    return 0.0;  // replace
+    double min = list[0];
+    for (int i = 0; i < list.length; ++i) {
+      if (list[i] < min) {
+        min = list[i];
+      }
+    }
+    return min;
   }
 
   /*

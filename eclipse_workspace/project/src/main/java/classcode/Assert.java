@@ -15,6 +15,12 @@ public class Assert {
 	  }
 	}
 
+	public static void strict(boolean expr) {
+    if (!expr) {
+      throw new AssertionError();
+    }
+	}
+
   public static void main(String[] args) {
     
     Assert.that(true);

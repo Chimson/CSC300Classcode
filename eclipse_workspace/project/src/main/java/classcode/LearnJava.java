@@ -52,6 +52,8 @@ public class LearnJava {
     StdOut.println();
     
     float x1 = (float) 3.14;
+    int pi = (int) 3.14;
+    Integer myint1forreal = 4;
     boolean b = true;
     
     
@@ -82,6 +84,7 @@ public class LearnJava {
     // implicitly init with default values for type 
     // java.util.Arrays has static helper functions for raw arrays
     int[] iarr2 = new int[3];    //  with 0's 
+    StdOut.println("iarr2 = "  + iarr2);
     StdOut.println(Arrays.toString(iarr2));
     StdOut.println();
    
@@ -99,10 +102,19 @@ public class LearnJava {
     /* 
       TODO: write a for each loop on iarr that tries to add one to 
           each val in the array, and prints results
+
     */
-    
+
+    for (int val: iarr) {
+        StdOut.println(val);
+    }
+
+
     // ----- 
-     
+
+    boolean bool1 = !(true && false);  // && is and, || or
+    // ----
+
     // import allows you to use classes without package namespace
     // however you can call with the package
     // Some types/classes require a non-primitive type parameter in <>
@@ -119,10 +131,6 @@ public class LearnJava {
     Hello hl = new Hello();   
     hl.hello();
     // ----- 
-
-
-    // -----
-
 
 
     // call a static function/method using function_name()

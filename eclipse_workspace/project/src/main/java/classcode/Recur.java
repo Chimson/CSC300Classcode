@@ -67,7 +67,7 @@ public class Recur {
   }
   
   public static double min(double[] arr) {
-    return minHelper(arr, 0, arr[0]);
+      return minHelper(arr, 0, arr[0]);
   }
   
   // {7, 6, 3, -1, 10}
@@ -104,8 +104,10 @@ public class Recur {
         Can use a result index param as a local var
   */   
   public static double[] append(double[] a, double[] b) {
-    return null;
-  } 
+		return null;
+  }
+
+
 
   
   
@@ -122,33 +124,33 @@ public class Recur {
     
     StdOut.println("test min:");
     double m = min(new double[] {4, 8, 3, 6, 10});
-    Assert.that(m == 3.0);
+    Assert.strict(m == 3.0);
     StdOut.println(m);
    
     m = min(new double[] {1, 8, 3, 6, 10});
-    Assert.that(m == 1.0);
+    Assert.strict(m == 1.0);
     StdOut.println(m);    
     
     m = min(new double[] {3, 8, 3, 6, -1});
-    Assert.that(m == -1.0);
+    Assert.strict(m == -1.0);
     StdOut.println(m);    
     
     m = min(new double[] {1});
-    Assert.that(m == 1);
+    Assert.strict(m == 1);
     
     StdOut.println("\n*****\n");
     
     // append modifies an array in place, and has mutually exclusive cases
     StdOut.println("test append:");
     double[] result1 = append(new double[] {1, 2, 3}, new double[] {4, 5, 6});
-    Assert.that(Arrays.equals(result1, new double[] {1, 2, 3, 4, 5, 6}));
+    Assert.strict(Arrays.equals(result1, new double[] {1, 2, 3, 4, 5, 6}));
     StdOut.println(Arrays.toString(result1));
     
     double[] result2 = append(new double[] {200, 100, 300, 700}, new double[] {400, 600});
-    Assert.that(Arrays.equals(result2, new double[] {200, 100, 300, 700, 400, 600}));
+    Assert.strict(Arrays.equals(result2, new double[] {200, 100, 300, 700, 400, 600}));
     StdOut.println(Arrays.toString(result2));
     
-    StdOut.println("Tests pass!");
+    StdOut.println("Tests Complete!");
 
 
     
