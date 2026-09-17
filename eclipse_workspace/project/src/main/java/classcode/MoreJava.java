@@ -21,7 +21,13 @@ public class MoreJava {
     TODO: Complete reverseInPlace so that reverses the array by 
           swaping values at indices 0 and N-1, 1 and N-2, etc.
    */
+     int N = arr.length;
+     for (int i = 0; i < arr.length/2; ++i ) {
+			 double tmp = arr[i];
+			 arr[i] = arr[N - 1 - i];
+			 arr[N - i - 1] = tmp;
 
+     }
      // {1, 2, 3, 4, 5}
      //   {5, 2, 3, 4, 1}
      //   {5, 4, 3, 2, 1}
@@ -29,10 +35,16 @@ public class MoreJava {
   
   // assume variables in main are defined as val = 0, arr = {99, 98, 97}
   // return type void, so method does not return an object
-  public static void passByValue(int val, int[] arr) {
+
+  // int val2 = 0;
+  // int[] arr3 = new int[] {1, 2, 3};
+  // passByValue(val2, arr3);
+  // println(val2)
+
+  public static void passByValue(Integer val, int[] arr) {
     val += 1;
     arr[0] = 100;
-  }
+	}
   
   public static void main(String[] args) {
   
@@ -68,6 +80,7 @@ public class MoreJava {
     println(arr1 == arr2);   // .equals() is the same, not overridden
 
     // TODO: use the arr1.equals(arr2) with raw arrays, but unimpl
+
 
     println(Arrays.equals(arr1, arr2)); 
     printStars();
@@ -105,11 +118,14 @@ public class MoreJava {
     println(arrACopy.equals(arrA));  // false, bc they are raw arrays, no .equals impl
     printStars();
 
+		int i = 3;
+		Integer j = i;
+
     // pass by value functions
-    int val2 = 0;
+    Integer val2 = 0;
     int[] arr4 = {99, 98, 97};
     passByValue(val2, arr4);
-    println(val2);  // 0
+    println("what is it?" + val2);  // 0
     println(Arrays.toString(arr4));  // [100, 98, 97]
     printStars();
    
@@ -143,8 +159,8 @@ public class MoreJava {
 
     // arrays will not allow access to elements in invalid indices, throws exception
     int[] iarr4 = new int[] {5, 6, 7, 8, 9, 10};
-    for (int i = 0; i < iarr4.length - 1; ++i) {  // show the bounds check error too
-      iarr4[i + 1] += iarr4[i];
+    for (int ind = 0; ind < iarr4.length - 1; ++ind) {  // show the bounds check error too
+      iarr4[ind + 1] += iarr4[ind];
     }
     StdOut.println(Arrays.toString(iarr4));
     StdOut.println("end of file");
