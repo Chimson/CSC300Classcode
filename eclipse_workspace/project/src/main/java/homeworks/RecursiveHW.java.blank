@@ -1,0 +1,173 @@
+package homeworks;
+
+import java.util.Arrays;
+import stdlib.*;
+
+/* *********************************************************************** 
+ Directions: Complete the functions/classes in this file.
+ 
+ * Restrictions:  
+ *  - DO NOT change the first line of any function or class: name, parameters, types, etc.
+ *  - You may add new functions, private methods, etc., but don't delete anything
+ *  - DO NOT ADD or new fields (variables declared outside of a function) or 
+ *    change existing ones
+ *  - You must use recursive functions!
+ *  - Each function must be independent --- do not call any of the other functions 
+ *      (unless its calling its associated helper function)
+ *  - Follow the directions given above each function/class to complete
+ *************************************************************************/
+
+/*
+ * This is a skeleton file for your homework. Edit the sections marked TODO. You
+ * may add new functions. You may also edit the function "main" to test your
+ * code.
+ *
+ * You must not add static variables. You MAY add static functions, just not
+ * static variables.
+ *
+ * It is okay to add functions, such as
+ *
+ * <pre>
+ *     public static double sumHelper (double[] list, int i, double sumSoFar) {
+ * </pre>
+ *
+ * but it is NOT okay to add static variables, such as
+ *
+ * <pre>
+ * public static int x;
+ * </pre>
+ *
+ * As for homework 1, you must not change the declaration of any method.
+ * 
+ * You can edit the main function all you want. I will not run your main
+ * function when grading.
+ */
+
+/* ===== DO NOT CHANGE BELOW ===== */
+
+public class RecursiveHW {
+
+
+	/*
+	 * As a model, here is a minValue function, both iteratively and recursively
+	 */
+	/* iterative version */
+	public static double minValueI (double[] list) {
+		double result = list[0];
+		int i = 1;
+		while (i < list.length) {
+			if (list[i] < result) result = list[i];
+			i = i + 1;
+		}
+		return result;
+	}
+
+	/* recursive version */
+	public static double minValue (double[] list) {
+		return minValueHelper (list, 1, list[0]);
+	}
+	private static double minValueHelper (double[] list, int i, double result) {
+		if (i < list.length) {
+			if (list[i] < result) result = list[i];
+			result = minValueHelper (list, i + 1, result);
+		}
+		return result;
+	}
+	
+/* ===== DO NOT CHANGE ABOVE ===== */
+
+	/* 
+	 * PROBLEM 1: Translate the following sum function from iterative to
+	 * recursive.
+	 *
+	 * You should write a helper method. You may not use any "fields" to solve
+	 * this problem (a field is a variable that is declared "outside" of the
+	 * function declaration --- either before or after).
+	 */
+	/* ===== DO NOT CHANGE BELOW ===== */ 
+	public static double sumI (double[] a) {
+		double result = 0.0;
+		int i = 0;
+		while (i < a.length) {
+			result = result + a[i];
+			i = i + 1;
+		}
+		return result;
+	}
+	/* ===== DO NOT CHANGE ABOVE ===== */
+	
+	public double sum (double[] a) {
+	  // TODO: Write a recursive helper method and call it here
+	  return 0.0;  // replace
+	}
+
+	/*
+	 * PROBLEM 2: Do the same translation for this in-place reverse function
+	 *
+	 * You should write a helper method. You may not use any "fields" to solve
+	 * this problem (a field is a variable that is declared "outside" of the
+	 * function declaration --- either before or after).
+	 */
+	/* ===== DO NOT CHANGE BELOW ===== */ 
+	public static void reverseI (double[] a) {
+		int hi = a.length - 1;
+		int lo = 0;
+		while (lo < hi) {
+			double loVal = a[lo];
+			double hiVal = a[hi];
+			a[hi] = loVal;
+			a[lo] = hiVal;
+			lo = lo + 1;
+			hi = hi - 1;
+		}
+	}
+	/* ===== DO NOT CHANGE ABOVE ===== */
+	
+	public void reverse (double[] a) {
+    // TODO: Write a recursive helper method and call it here
+	}
+
+  
+  /* PROBLEM 3: Write a recursive function that inserts a double "val" at any valid 
+   *   index "key" in the double[] array 
+   *   
+   * You should write a helper method. You may not use any "fields" to solve
+   * this problem (a field is a variable that is declared "outside" of the
+   * function declaration --- either before or after).
+   */
+  
+  public double[] insertToDblArray(int key, double val, double[] arr) {
+    // TODO: Write a recursive helper method and call it here
+    return null;  // replace
+  }
+  
+  
+  /* PROBLEM 4: Write a recursive function that searches for a double "val" in the array 
+   *   and returns its rank, which is the position/index it sits in the array
+   *   
+   * You should write a helper method. You may not use any "fields" to solve
+   * this problem (a field is a variable that is declared "outside" of the
+   * function declaration --- either before or after).
+   */
+  
+  public int rank(double val, double[] arr) {
+    // TODO: Write a recursive helper method and call it here
+    return 0;  // replace
+  }
+  
+  
+	/* ===== DO NOT CHANGE BELOW ===== */
+
+	public RecursiveHW create() {
+		return new RecursiveHW();
+	}
+
+	public static void main (String[] args) {
+		RecursiveHW rhw = new RecursiveHW();
+		RecursiveHWTests tests = new RecursiveHWTests(rhw);
+		tests.execute();
+	}
+
+}
+
+  /* ===== DO NOT CHANGE ABOVE ===== */
