@@ -65,9 +65,23 @@ public class Recur {
     }
     return cur_min;
   }
-  
+
+	// example handling an edge case with an exception
+	// could use IllegalArgumentException
+	public static double minWExc(double[] arr) throws Exception {
+		if (arr == null) {
+			throw new Exception("array reference is null");
+		}
+		return minHelper(arr, 0, arr[0]);
+	}
+
   public static double min(double[] arr) {
-      return minHelper(arr, 0, arr[0]);
+		// if you wanted to handle an edge case
+		if (arr == null || arr.length == 0) {
+			return Double.MIN_VALUE;  // not ideal, but detectable
+		}
+
+		return minHelper(arr, 0, arr[0]);
   }
   
   // {7, 6, 3, -1, 10}
@@ -88,7 +102,7 @@ public class Recur {
     
   /*
     Assume mh is minHelper
-    return mh([4, 8, 3], 0, 4):    
+    mh([4, 8, 3], 0, 4):
       return mh([4, 8, 3], 1, 4):
         return mh([4, 8, 3], 2, 4):  
           crmin = 3
@@ -104,13 +118,24 @@ public class Recur {
         Can use a result index param as a local var
   */   
   public static double[] append(double[] a, double[] b) {
-		return null;
+		double[] ret = new double[a.length + b.length];
+		return appendHelper(a, b, 0, ret);
   }
 
+	public static double[] appendHelper(double[] a, double[] b, int i, double[] ret) {
+		if (i > ret.length - 1) {
+			return ret;
+		}
 
+		if (i > a.length - 1) {
+		  ret[i] = b[i - a.length];
+		}
+		else {   // work in a
+			 ret[i] = a[i];
+		}
 
-  
-  
+		return appendHelper(a, b, i + 1, ret);
+	}
   
 
   

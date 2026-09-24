@@ -117,7 +117,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
   }
 
   public static void main(String[] args) {
-    
+
     ResizingArrayStack<Integer> ras = new ResizingArrayStack<>();
     Assert.that(ras.n == 0);
     Assert.that(Arrays.equals(ras.a, new Integer[] {null, null, null, null,
