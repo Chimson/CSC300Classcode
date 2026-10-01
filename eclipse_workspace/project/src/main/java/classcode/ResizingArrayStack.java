@@ -74,9 +74,23 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
       null it out
       decrease the item count
       resize to half the current cap if it only 1/4 full       
-    */ 
-    
-    return null;
+    */
+
+    // deal with the case when array is empty
+    if (n == 0) {
+			throw new NoSuchElementException("can't pop from empty stack");
+    }
+
+    // Item retval = a[--n];
+    n -= 1;
+		Item retval = a[n];
+		a[n] = null;
+
+		if (n > 0 && n == a.length/4) {
+      resize(a.length/2);
+    }
+
+    return retval;
   }
 
   /*
