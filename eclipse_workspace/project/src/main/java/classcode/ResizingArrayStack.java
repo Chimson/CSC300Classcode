@@ -86,6 +86,13 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 		Item retval = a[n];
 		a[n] = null;
 
+
+	  /*
+      don't really need n > 0 unless resize is used in some other
+      data structure where the a array could be of length 0
+        in this implementation a.length can never be 0
+	  */
+
 		if (n > 0 && n == a.length/4) {
       resize(a.length/2);
     }
