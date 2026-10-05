@@ -10,7 +10,10 @@ public class Assert {
 	      throw new AssertionError();
 	    }
 	    catch (AssertionError e) {
-	      e.printStackTrace();
+
+				// move it to stdout to print right when its detected
+				e.printStackTrace(System.out);
+
 	    }
 	  }
 	}
