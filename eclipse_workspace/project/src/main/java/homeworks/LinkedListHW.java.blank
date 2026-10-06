@@ -1,0 +1,138 @@
+package homeworks;
+import java.text.DecimalFormat;
+
+/* *********************************************************************** 
+ Directions: Complete the functions/classes in this file.
+ 
+ * Restrictions:  
+ *  - DO NOT change the first line of any function or class: name, parameters, types, etc.
+ *  - You may add new functions, private methods, etc., but don't delete anything
+ *  - DO NOT ADD or new fields (variables declared outside of a function) or 
+ *    change existing ones
+ *  - Each function must be independent --- do not call any of the other functions 
+ *      (unless its calling its associated helper function)
+ *  - Follow the directions given above each function/class to complete
+ *  - deleteFirst should modify the list but none of the other methods should modify the list
+ *  - Do not add any methods to the node class
+ *  - Do not create any new node objects or other objects
+ *  - You cannot create a new Stack or ArrayList
+ *  - You can use recursion or loops
+ *************************************************************************/
+
+ 
+/* ===== DO NOT CHANGE BELOW ===== */
+ 
+
+public class LinkedListHW {
+
+  static class Node {
+    double item;
+    Node next;
+    Node (double item, Node next) { 
+      this.item = item; 
+      this.next = next; 
+    }
+  }
+  
+  
+  Node first;
+
+/* ===== DO NOT CHANGE ABOVE ===== */
+
+  // Return the size of the list
+  // See the tests for more...
+  public int size() {
+     // TODO
+    return Integer.MAX_VALUE;  // replace
+  }
+
+  // Return the sum of the positive elements of the list
+  // See the tests for more...
+  public double sumPositiveElements () {
+    // TODO
+    return Integer.MAX_VALUE;  // replace
+  }
+  
+  // Return the length of the common prefix for this and that
+  // See the tests for more...
+  public int lengthOfCommonPrefix (LinkedListHW that) {
+    // TODO
+    return Integer.MAX_VALUE;  // replace
+  }
+  
+  // Return true if the elements are strictly increasing
+  // See the tests for more...
+  public boolean isIncreasing() {
+    // TODO
+   return false;  // replace
+  }
+  
+  // Return true if the even indexed elements are strictly increasing
+  // See the tests for more...
+  public boolean evenIndicesIncreasing () {
+    // TODO
+    return false;  // replace
+  }
+  
+  // Delete the first node from this list, if it exists
+  // Do nothing if the list is empty
+  // This is similar to Stack.pop
+  public void deleteFirst () {
+    // TODO
+  }
+
+/* ===== DO NOT CHANGE BELOW ===== */
+
+  public static void main (String args[]) {
+    
+    LinkedListTests llt = new LinkedListTests(new LinkedListHW());
+    llt.execute();
+  }
+
+  /* ToString method to print */
+  public String toString () { 
+    // Use DecimalFormat #.### rather than String.format 0.3f to leave off trailing zeroes
+    DecimalFormat format = new DecimalFormat ("#.###");
+    StringBuilder result = new StringBuilder ("[ ");
+    for (Node x = first; x != null; x = x.next) {
+      result.append (format.format (x.item));
+      result.append (" ");
+    }
+    result.append ("]");
+    return result.toString ();
+  }
+  public String toStringWithQuadraticPerformance () { 
+    // Use DecimalFormat #.### rather than String.format 0.3f to leave off trailing zeroes
+    DecimalFormat format = new DecimalFormat ("#.###");
+    String result = "";
+    for (Node x = first; x != null; x = x.next) {
+      result += format.format (x.item);
+      result += " ";
+    }
+    result += "]";
+    return result;
+  }
+
+  /* Method to create lists */
+  LinkedListHW from(String s) {
+    var result = new LinkedListHW ();
+    if ("".equals (s)) return result;
+    
+    Node first = null;
+    String[] nums = s.split (" ");
+    for (int i = nums.length-1; i >= 0; i--) {
+      try { 
+        double num = Double.parseDouble (nums[i]); 
+        first = new Node (num, first);      
+      } catch (NumberFormatException e) {
+        throw new IllegalArgumentException (String.format ("Bad argument \"%s\": could not parse \"%s\" as a double", s, nums[i]));
+      }
+    }
+    result.first = first;
+    return result;
+  }
+  
+
+}
+
+/* ===== DO NOT CHANGE ABOVE ===== */
