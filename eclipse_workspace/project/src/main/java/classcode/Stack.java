@@ -4,7 +4,7 @@ import classcode.Assert;
 import stdlib.*;
 
 public class Stack<Item> implements Iterable<Item> {
-  private Node first;
+  private Node first;  // top
   private int N; // number of items
 
   private class Node {
@@ -28,6 +28,22 @@ public class Stack<Item> implements Iterable<Item> {
       update N
   */
   public void push(Item item) {
+	  /*
+		Node cur = new Node();
+		cur.item = item;
+		cur.next = first;
+		first = cur;
+		++N;
+		*/
+
+
+		Node oldfirst = first;
+		first = new Node();
+		first.item = item;
+		first.next = oldfirst;
+		++N;
+
+
 	}
 
 
@@ -41,11 +57,16 @@ public class Stack<Item> implements Iterable<Item> {
   /*
     TODO: complete in class
       do not use an iterator
-      us a while or for loop
+      us a for loop
       return true if val is in the list, false if not
       items should use .equals() not ==
   */
   public boolean isIn(Item val) {
+		for (Node cur = first; cur != null; cur = cur.next) {
+		  if (cur.item.equals(val)) {
+				return true;
+		  }
+		}
 		return false;
   }
 
@@ -60,7 +81,29 @@ public class Stack<Item> implements Iterable<Item> {
         list size 1 returns 1 change
   */
   public int numChanges() {
-    return 0;
+    // [0] -> [49] -> [12]
+    //        p         c
+
+		if (first == null) {
+		  return 0;
+		}
+		else if (first.next == null) {
+			return 1;
+		}
+
+		// assume that stack size >= 2
+		Node prev = first;
+		Node cur = first.next;
+		int count = 1;
+		while (cur != null) {
+			if (!cur.item.equals(prev.item)) {
+				++count;
+			}
+			prev = cur;
+			cur = cur.next;
+		}
+
+	  return count;
   }
 
   public Iterator<Item> iterator() {
@@ -116,6 +159,7 @@ public class Stack<Item> implements Iterable<Item> {
     Assert.that(st.N == 0);
     Assert.that(st.first == null);
 
+		Assert.that(st.isIn("A") == false);
     st.push("A");
     st.push("B");
     st.push("C");
