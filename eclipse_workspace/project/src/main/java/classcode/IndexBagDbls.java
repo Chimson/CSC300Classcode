@@ -62,7 +62,7 @@ public class IndexBagDbls {
   */
 	// add item to a new node at index i
     public void addItemAtIndex(double item, int index) {
-			
+
     }
 
 
