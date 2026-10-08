@@ -82,7 +82,7 @@ public class Stack<Item> implements Iterable<Item> {
   */
   public int numChanges() {
     // [0] -> [49] -> [12]
-    //        p         c
+    //    p         c
 
 		if (first == null) {
 		  return 0;

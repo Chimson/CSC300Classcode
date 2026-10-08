@@ -15,19 +15,18 @@ public class Queue<Item> implements Iterable<Item> {
   private int N; // number of items on the queue
   
   // methods
-  public Queue() {
-    ;
-  }
+  // public Queue() {}
   
   public boolean isEmpty() { 
-    return first == null; 
+    return first == null && last == null;
   } 
   // Or: N == 0.
   
   public int size() { 
     return N;
   }
-  
+
+
   public void enqueue(Item item) { // Add item to the end of the list.
     /*
       TODO: complete in class
@@ -39,14 +38,51 @@ public class Queue<Item> implements Iterable<Item> {
             first is unchanged here
         increase N by 1 
     */
-    
+
+		// from the book
+		Node oldlast = last;
+		last = new Node();
+		last.item = item;
+		last.next = null;
+    if (first == null) {  // when empty last is changed, need to change first
+			first = last;
+    }
+		else {  // size >= 1
+			oldlast.next = last;
+		}
+		++N;
+
+    /*
+    // In class version - i cleaned this up a little
+    //   since when written like this you don't need our else if case
+    // when list is empty
+    if (first == null && last == null) {
+			last = new Node();
+			last.item = item;
+			first = last;
+    }
+		else {   // size >= 1
+			// first doesn't change written this way
+			// don't need the previous else if from class
+			//   since it is the same here
+
+			Node oldlast = last;
+			last = new Node();
+			last.item = item;
+			oldlast.next = last;
+		}
+		++N;
+		 */
+
+
+
   }
    
-  
+  // nullPointerException when called on empty queue
   public Item dequeue() { // Remove item from the beginning of the list.
     Item item = first.item;
     first = first.next;
-    if (isEmpty()) {
+    if (first == null) {   // modified this
       last = null;
     }
     N--;
@@ -80,7 +116,6 @@ public class Queue<Item> implements Iterable<Item> {
     Assert.that(qu.first == null);
     Assert.that(qu.last == null);
     Assert.that(qu.N == 0);
-    StdOut.println("Passed: enqueue - start with empty queue");
     
     qu.enqueue(1);
     Assert.that(qu.first != null);
@@ -88,7 +123,6 @@ public class Queue<Item> implements Iterable<Item> {
     Assert.that(qu.first == qu.last);
     Assert.that(qu.first.item.equals(1));
     Assert.that(qu.N == 1);
-    StdOut.println("Passed: enqueue - add 1");
     
     qu.enqueue(2);
     Assert.that(qu.first != null);
@@ -99,7 +133,6 @@ public class Queue<Item> implements Iterable<Item> {
     Assert.that(qu.last.next == null);
     Assert.that(qu.last.item.equals(2));
     Assert.that(qu.N == 2);
-    StdOut.println("Passed: enqueue - add 2");    
     
     qu.enqueue(3);
     Assert.that(qu.first != null);
@@ -111,7 +144,6 @@ public class Queue<Item> implements Iterable<Item> {
     Assert.that(qu.last.item.equals(3));
     Assert.that(qu.last.next == null);
     Assert.that(qu.N == 3);
-    StdOut.println("Passed: enqueue - add 3\n");   
     
     // TODO: write test to test dequeue()
     
@@ -126,9 +158,8 @@ public class Queue<Item> implements Iterable<Item> {
     for (Integer val: qu) {
       StdOut.println(val);
     }
-    
-    StdOut.println();
-    
+
+
     for (int i = 0; i < 10; ++i) {
       StdOut.println(qu.dequeue());
     }
