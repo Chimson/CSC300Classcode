@@ -1,0 +1,119 @@
+package homeworks;
+import java.text.DecimalFormat;
+
+/* *********************************************************************** 
+ Directions: Complete the functions/classes in this file.
+ 
+ * Restrictions:  
+ *  - DO NOT change the first line of any function or class: name, parameters, types, etc.
+ *  - You may add new functions, private methods, etc., but don't delete anything
+ *  - Do not add any methods to the node class
+ *  - DO NOT ADD new fields (variables declared outside of a function) or 
+ *      change existing ones
+ *  - Each function must be independent --- do not call any of the other functions 
+ *      (unless its calling its associated helper function)
+ *  - Follow the directions given above each function/class to complete
+ *  - Do not change any item values in a node but you should change the node links
+ *  - Do not create any new node objects or other objects, but you can use aliases
+ *  - You cannot create a new Stack or ArrayList
+ *  - You can use any for or while loop, or write a recursion helper function
+ *************************************************************************/
+
+/* Note that this list keeps track of the number of elements N. */
+
+/* ===== DO NOT CHANGE BELOW ===== */
+
+public class MutateLinkedList {
+	
+	static class Node {
+		Node (double item, Node next) { 
+		  this.item = item; this.next = next; 
+	  }
+		double item;
+		Node next;
+	}
+	
+	int N;
+	Node first;
+
+/* ===== DO NOT CHANGE ABOVE ===== */
+
+	/* 
+	   delete the kth element (where k is between 0 and N-1 inclusive)
+	   If k is too big or small for a valid position an item in the list then
+	     throw new IllegalArgumentException(); 
+	   No Node's item should be changed, only their next
+   */
+	public void delete (int k) {
+	  // TODO
+	}
+  
+
+	/* 
+	  reverse the list "in place"... 
+	  This means that list should only change by it's Node references
+	  No Node's item should be changed, only their next
+	*/
+	public void reverse () {
+    // TODO
+	}
+
+	/*
+	  remove all occurrences of item from the list 
+	  no Node's item should be changed, only their next
+	  you may want to use a recursive helper, since the list can change multiple times 
+	    if the list contains many nodes of the same item
+  */
+	public void remove (double item) {
+    // TODO
+	}
+
+
+/* ===== DO NOT CHANGE BELOW ===== */
+
+	public static void main (String args[]) {
+    MutateLinkedListTests mlt = new MutateLinkedListTests(new MutateLinkedList());
+	  mlt.execute();
+  }
+
+	
+
+	/* ToString method to print */
+	public String toString () { 
+		// Use DecimalFormat #.### rather than String.format 0.3f to leave off trailing zeroes
+		DecimalFormat format = new DecimalFormat ("#.###");
+		StringBuilder result = new StringBuilder ("[ ");
+		for (Node x = first; x != null; x = x.next) {
+			result.append (format.format (x.item));
+			result.append (" ");
+		}
+		result.append ("]");
+		return result.toString ();
+	}
+
+	/* Method to create lists */
+	public MutateLinkedList from(String s) {
+		MutateLinkedList result = new MutateLinkedList ();
+		if ("".equals (s)) return result;
+
+		int N = 0;
+		Node first = null;
+		String[] nums = s.split (" ");
+		for (int i = nums.length-1; i >= 0; i--) {
+			try { 
+				double num = Double.parseDouble (nums[i]); 
+				first = new Node (num, first);  
+				N++;
+			} catch (NumberFormatException e) {
+				throw new IllegalArgumentException (String.format ("Bad argument \"%s\": could not parse \"%s\" as a double", s, nums[i]));
+			}
+		}
+		result.first = first;
+		result.N = N;
+		return result;
+	}
+
+	
+}
+
+/* ===== DO NOT CHANGE ABOVE ===== */

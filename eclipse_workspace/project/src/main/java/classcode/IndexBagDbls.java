@@ -47,7 +47,7 @@ public class IndexBagDbls {
       Write using a recursive helper
         need to add prev, cur, and current index i parameters
       Cases:
-        If the list is empty and given index 0: add first node, first and last point to it now
+        X If the list is empty and given index 0: add first node, first and last point to it now
         If you find an existing node (non null) at search index (when size >= 1)
           If its at index 0, add to the front like stack
           anywhere else then connect it between prev and cur
@@ -62,6 +62,56 @@ public class IndexBagDbls {
   */
 	// add item to a new node at index i
     public void addItemAtIndex(double item, int index) {
+
+			addItemAtIndexHelper(item, index, null, first, 0);
+    }
+
+    public void addItemAtIndexHelper(double item, int index, Node prev, Node cur, int i) {
+
+			// list is empty and want to add at index 0
+			if (first == null && index == 0) {
+				first = new Node();
+				first.item = item;
+				last = first;
+				++N;
+				return;
+			}
+
+			// size >= 1
+			if (cur != null && i == index) {
+
+				// think push() on stack
+				if (index == 0) {
+					Node oldfirst = first;
+					first = new Node();
+					first.item = item;
+					first.next = oldfirst;
+				}
+				// anywhere else add at index
+				else {
+          prev.next = new Node();
+					prev.next.item = item;
+					prev.next.next = cur;
+				}
+				++N;
+				return;
+			}
+			else if (cur != null && i != index) {
+        // pointing to a node, but not one you want to add behind
+        // go to the next
+        addItemAtIndexHelper(item, index, cur, cur.next, i + 1);
+			}
+			else if (cur == null && i == index) {
+        // want to add at the null end of the list? sure!
+        addLast(item);
+
+			}
+			else {   // cur == null && i != index
+				// used to be the base case
+				// but had the split to here so we can add at the null end in case above
+				return;
+			}
+
 
     }
 

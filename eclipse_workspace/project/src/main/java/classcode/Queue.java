@@ -40,6 +40,7 @@ public class Queue<Item> implements Iterable<Item> {
     */
 
 		// from the book
+		/*
 		Node oldlast = last;
 		last = new Node();
 		last.item = item;
@@ -52,7 +53,9 @@ public class Queue<Item> implements Iterable<Item> {
 		}
 		++N;
 
-    /*
+		*/
+
+
     // In class version - i cleaned this up a little
     //   since when written like this you don't need our else if case
     // when list is empty
@@ -72,7 +75,7 @@ public class Queue<Item> implements Iterable<Item> {
 			oldlast.next = last;
 		}
 		++N;
-		 */
+
 
 
 
