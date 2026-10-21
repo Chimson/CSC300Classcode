@@ -1,0 +1,154 @@
+package homeworks;
+
+/* *********************************************************************** 
+ Directions: Complete the functions/classes in this file.
+ 
+ * Restrictions:  
+ *  - DO NOT change the first line of any function or class: name, parameters, types, etc.
+ *  - You may add new functions, private methods, etc., but don't delete anything
+ *  - Do not add any methods to the node class
+ *  - DO NOT ADD new fields (variables declared outside of a function) or 
+ *      change existing ones
+ *  - Each function must be independent --- do not call any of the other functions 
+ *      (unless its calling its associated helper function)
+ *  - Follow the directions given above each function/class to complete
+ *  - Do not change any item values in a node but you should change the node links
+ *  - Do not create any new node objects or other objects, but you can use aliases
+ *  - You cannot create ArrayList, or any other Java built-in class
+ *  - You cannot use any loops or recursion, except in delete()
+ *  - This is a double-linked list, so do not forget about the prev reference
+ *************************************************************************/
+
+/* ===== DO NOT CHANGE BELOW ===== */
+
+public class MyDblEndQue {
+  
+  static class Node {
+    Node (double item) { 
+      this.item = item; 
+    }
+    double item;
+    Node next;
+    Node prev;
+  }
+	
+	Node first = null;
+	Node last = null;
+	int N = 0;
+
+	public MyDblEndQue ()         { };
+	public boolean isEmpty () { return N == 0; }
+	public int size() { 
+	  return N; 
+  }
+
+/* ===== DO NOT CHANGE ABOVE ===== */
+
+  /*
+    TODO:
+      Complete the function
+      Add a new node, containing item, to the "first" end of the list
+      You will need to adjust first and last references
+        depending on the case (aka size of the list)
+  */
+	public void pushLeft (double item) {
+	  // TODO: complete
+	}
+
+  /*
+    TODO: 
+      Complete the function
+      It should remove the node at the "first" end of the list
+      You will need to change the first and last references
+         depending on the case
+      Do not change any items
+      Throw an exception if popLeft() is applied to an empty queue
+  */
+	public double popLeft() {
+    // TODO: complete
+    return Double.MIN_VALUE;  // replace		
+	}
+
+  
+  /*
+    TODO:
+      Complete the function 
+      It should add a new node, containing item, to the "last"
+        end of the list
+      You will need to change the first and last references
+         depending on the case 
+  */
+	public void pushRight (double item) {
+    // TODO: complete
+	}
+	
+  /*
+   TODO: 
+     Complete the function
+     It should remove the node at the "last" end of the list
+     You will need to change the first and last references
+       depending on the case 
+     Do not change any items 
+     Throw an exception if popRight() is applied to an empty queue
+  */
+  public double popRight() {
+    // TODO: complete
+    return Double.MIN_VALUE;  // replace
+  }
+  
+  /*
+   TODO:
+     Complete the function
+     The concat method should take the Nodes from "that" list and add them to "this" list
+     After execution, "that" should be empty.
+     See the tests in the main program.
+   
+     Do NOT use a loop or a recursive helper function.
+     This method can declare Node variables, but may not create new node objects (using "new").
+     Therefore the method should not call pushLeft or pushRight (which use create new objects).
+     You should be able to concat lists by changing the first and
+        last references correctly (depending on the sizes of "this" and "that")
+     You do not have to handle the case when "that" is null
+   */
+	public void concat (MyDblEndQue that) {
+    // TODO: complete
+	}
+
+  /* 
+   TODO: Complete the function
+     Delete should delete and return the kth element from the first (where k is between 0 and N-1).
+     See the tests in the main program.
+
+     You may use a loop or a recursive definition here.
+     This method can declare Node variables, but may not create new node objects (using "new").
+     Therefore the method should not call pushLeft or pushRight (which use create new objects).
+     Do not change the items across nodes, only change the correct next, prev, first, last references
+       depending on the case
+     You must remove the node at position k, by changing the appropriate references on nodes around it
+       and not changing items
+     Throw an IllegalArgumentException when given an invalid index/position
+       that you want to delete a node from in the Queue
+   */
+	public double delete (int k) {
+	  // TODO: complete
+    return Double.MIN_VALUE;  // replace	
+	}
+
+/* ===== DO NOT CHANGE BELOW ===== */
+
+  
+	public static void main(String[] args) {
+	  
+    MyDblEndQueTests test = new MyDblEndQueTests(new MyDblEndQue());
+    test.execute();
+  }
+	
+  public MyDblEndQue newQue() {
+    return new MyDblEndQue();
+  }
+
+}
+	
+
+
+/* ===== DO NOT CHANGE ABOVE ===== */

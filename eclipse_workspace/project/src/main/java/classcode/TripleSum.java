@@ -76,10 +76,10 @@ public class TripleSum {
     double[] vals = new double[4];
     vals[0] = timeTripleSum(okints);
     vals[1] = timeTripleSum(tkints);
-    vals[2] = 3.6;
-    // vals[2] = timeTripleSum(fkints);
-    vals[3] = 30;
-    // vals[3] = timeTripleSum(ekints);
+    // vals[2] = 3.6;
+    vals[2] = timeTripleSum(fkints);
+    //  vals[3] = 30;
+    vals[3] = timeTripleSum(ekints);
     
     int[] sizes = {1000, 2000, 4000, 8000};
     plotValues(sizes, vals);    
