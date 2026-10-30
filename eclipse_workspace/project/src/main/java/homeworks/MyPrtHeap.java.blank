@@ -1,0 +1,133 @@
+// TODO: when throws other exception, print the trace
+// fix the MyAsserts total message to Tests
+
+package homeworks;
+
+import stdlib.StdOut;
+import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+/* ***********************************************************************
+ Directions: Complete the functions/classes in this file.
+
+ * Restrictions:
+ *  - DO NOT change the first line of any function or class: name, parameters, types, etc.
+ *  - You may add new functions, private methods, etc., but don't delete anything
+ *  - Do not add any methods to the node class
+ *  - DO NOT ADD new fields (variables declared outside of a function) or
+ *      change existing ones
+ *  - Follow the directions given in the CSC300BonusHWInstrs.pdf file
+ *  - Do not change any item values in a node but you should change the node links
+ *  - Do not create any new node objects or other objects but you can use aliases
+ *    - ONE EXCEPTION: You can create a new Node in insert()
+ *  - You cannot create an ArrayList, or any other Java built-in container class
+ *  - You can use while, for, or recursive loops (through a recursive helper)
+ *************************************************************************/
+
+/* ===== DO NOT CHANGE BELOW ===== */
+public class MyPrtHeap<K extends Comparable<K>> {
+
+  // Internal Node class for PQ
+  static class Node<K> {
+    K key;
+    Node<K> left;
+    Node<K> right;
+    Node<K> parent;
+    boolean isLeft;
+
+    public String toString() {
+      return "" + key;
+    }
+  }
+
+
+
+  Node<K> root;
+  int size;
+
+
+	public MyPrtHeap() {
+		root = null;
+		size = 0;
+	}
+
+	public boolean isEmpty () {
+		return root == null;
+	}
+
+	public int size () {
+		return this.size;
+	}
+
+	/* ===== DO NOT CHANGE ABOVE ===== */
+
+	// TODO: complete
+  public void insert (K x) {
+  }
+
+  // TODO: complete
+  private Node<K> travelByBin(Node<K> node, String bin) {
+    return null;  // replace
+  }
+
+  // TODO: complete
+  private boolean less(K key1, K key2) {
+    return false;  // replace
+  }
+
+  // TODO: complete
+  private void exch(Node<K> child, Node<K> parent) {
+  }
+
+  // TODO: complete
+  private void swim(Node<K> cur) {
+  }
+
+  // TODO: complete
+  private void sink(Node<K> cur) {
+  }
+
+  // TODO: complete
+	public K delMax () {
+		return null;  // replace
+	}
+
+  /* ===== DO NOT CHANGE BELOW ===== */
+
+  public MyPrtHeap<K> create() {
+    return new MyPrtHeap<>();
+  }
+
+  public static void main (String[] args) {
+    MyPrtHeap<Integer> hp = new MyPrtHeap<Integer>();
+    MyPrtHeapTests tests = new MyPrtHeapTests(hp);
+    tests.execute();
+  }
+
+  public String toString() {
+    return strHelper(root, "", 1, new ArrayList<Node<K>>());
+  }
+
+  private String strHelper(Node<K> cur, String msg, int level,
+      ArrayList<Node<K>> nodes) {
+    if (cur == null) {
+      return msg;
+    }
+
+    // if one of the children has been visited before then stop
+    // avoids creating a cycle in intermediate steps
+    nodes.add(cur);
+    if (nodes.contains(cur.left) || nodes.contains(cur.right)) {
+      msg = msg + "(cycle detected)\n";
+      return msg;
+    }
+
+    msg = msg + "  ".repeat(level) + cur.key + "\n" +
+      strHelper(cur.left, msg, level + 1, nodes) +
+      strHelper(cur.right, msg, level + 1, nodes);
+    return msg;
+  }
+}
+
+  /* ===== DO NOT CHANGE ABOVE ===== */
